@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<head>
+<title>Creative Studios</title>
+<link href="CSS/main.css" type="text/css" rel="stylesheet">
+<!--attaching CSS file to HTML-->
+<!-- to display HTML5 tags in IE8 as well -->
+<!-- [if lt IE 8]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<!-- [endif]-->
+<!-- for rounded corners in IE8 - external JS library curvycorners -->
+<script type="text/javascript" src="curvycorners.js"></script>
+<script type="text/JavaScript">
+addEvent(window, 'load', initCorners);
+function initCorners() {
+var setting = {
+tl: { radius: 0 },
+tr: { radius: 0},
+bl: { radius: 12 },
+br: { radius: 12 },
+antiAlias: true
+}
+curvyCorners(setting, ".container");
+}
+</script>
+<script>
+  $(document).ready(function(){
+  
+		if(!navigator.geolocation){
+		}
+	    else{
+			navigator.geolocation.getCurrentPosition(displayPosition,displayError,{ enableHighAccuracy: true, maximumAge: 0});
+		}
+
+  function displayPosition(position){
+  
+           if ("undefined" !== typeof position.address) {    
+                updateAddressFields({
+                city : position.address.city,
+                state: position.address.region,
+                zipCode: position.address.postalCode,
+                country: position.address.country
+            });}
+
+       }
+
+function displayError(){
+	
+          
+
+       }
+
+	   function updateAddressFields(address) {
+        console.dir(address);
+        
+        
+        $("#city").val(address.city);
+        
+        
+        $("#state").val(address.state);
+        
+        console.log('Zip: ' + address.zipCode);
+        $("#zip").val(address.zipCode);
+        
+        console.log('Country: ' + address.country);
+        $("#country").val(address.country);
+    } 
+
+  });
+ 
+  </script>
+</head>
+<body>
+<div class="container">
+  <!-- mian conatiner div - easy to handle and apply special look & feel as on required-->
+  <!-- for navigation bar -->
+  <nav class="mynav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html">About us</a></li>
+    <li><a href="mygame.html">Game</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+	<li><a href="twitter.html">Find Tweets</a></li>
+    <li><a href="contact.html" class="active">Contact Us</a></li>
+	<li><a href="locate.html">Locate Us</a></li>
+  </nav>
+  <!-- for banner -->
+  <header><img src="images/banner2_small.jpg" height="123" width="976" alt="Creative Studios"/></header>
+  <!-- body content -->
+  <article class="content">
+    <header class="ctitle">Contact US</header>
+    <form method="post" action="" name="conatct form" class="cform">
+      <br/>
+      <br/>
+      <leagend><font face="arial" size="-1.5"><em>Items amrked with (&#42;) are required.</em></font></leagend>
+      <br/>
+      <table>
+        <tr>
+          <td><label for="name" class="lb_contact">&#42; Name:</label></td>
+          <td><input type="text" name="name" autofocus required="required"></td>
+        </tr>
+        <tr>
+          <td><label for="email" class="lb_contact">&#42; Email:</label></td>
+          <td><input type="email" name="emailid" required="required"></td>
+        </tr>
+        <tr>
+          <td><label for="comapny name" class="lb_contact">Company:</label></td>
+          <td><input type="text" name="cname"></td>
+        </tr>
+        <tr>
+          <td><label for="webURL" class="lb_contact">Website:</label></td>
+          <td><input type="url" name="weburl" value="http://"></td>
+        </tr>
+		<tr>
+          <td><label for="city" class="lb_contact">City:</label></td>
+          <td><input type="text" id="city" placeholder="City"></td>
+        </tr>
+		<tr>
+          <td><label for="state" class="lb_contact">State:</label></td>
+          <td><input type="text" id="state" placeholder="State"></td>
+        </tr>
+		<tr>
+          <td><label for="country" class="lb_contact">Country:</label></td>
+          <td><input type="text" id="country" placeholder="Country"></td>
+        </tr>
+        <tr>
+          <td><label for="enquiry" class="lb_contact">&#42; Services looking for:</label></td>
+          <td><select id="service" name="service" required="required">
+              <option value="">Select One</option>
+              <option value="Complete Website Design">Complete Website Design</option>
+              <option value="Application Development">Custom Application Development</option>
+              <option value="Logo or Print Design">Logo or Print Design</option>
+              <option value="Usability Consulting">Usability Consulting</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="comments">&#42; Comments/Questions:</label></td>
+          <td><textarea name="comemnts" rows="5" cols="25" required="required" style="resize:none"></textarea></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" name="submit" id="submit" value="Send Message"/></td>
+        </tr>
+      </table>
+    </form>
+    </section>
+  </article>
+  <!-- start of sidebar -->
+  <aside class="sidebar">
+    <section class="graytbox">Waht's New?</section>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. We know&mdash; we’re in business too. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in.<br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <br/><br/><br/><br/>  <br/><br/><br/>  <br/><br/><br/> <br/><br/><br/> <br/><br/><br/>
+  </aside>
+  <!-- end of sidebar -->
+  
+</div>
+<!-- end of body container -->
+<!-- Footer content -->
+<footer class="foot"><a href="#" class="footlink" >Terms of Use</a> | <a href="#" class="footlink" >Privacy Policy</a> &copy;Copyright 1996-2011 Creative Studios</footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+<title>Creative Studios</title>
+<link href="CSS/main.css" type="text/css" rel="stylesheet">
+<!--attaching CSS file to HTML-->
+<!-- to display HTML5 tags in IE8 as well -->
+<!-- [if lt IE 8]-->
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<!-- [endif]-->
+<!-- for rounded corners in IE8 - external JS library curvycorners -->
+<script type="text/javascript" src="curvycorners.js"></script>
+<script type="text/JavaScript">
+addEvent(window, 'load', initCorners);
+function initCorners() {
+var setting = {
+tl: { radius: 0 },
+tr: { radius: 0},
+bl: { radius: 12 },
+br: { radius: 12 },
+antiAlias: true
+}
+curvyCorners(setting, ".container");
+}
+</script>
+<style> 
+		#map-container {
+			overflow: hidden;
+			width:890px;
+		}
+		#map_canvas {
+			float: left;
+			width: 60%;
+			height: 500px;
+			margin: 50px auto;
+		}
+		#showroute {
+			float: right;
+			width: 38%;
+			padding-left: 2%;
+			font-size:0.9em;
+		}
+	</style> 
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript"> 
+  var directionDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+  var infowindow;
+ 
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var latlng = new google.maps.LatLng(19.201805,72.966315);
+    var myOptions = {
+      zoom:13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: latlng
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	// Creating a marker and positioning it on the map
+	var marker = new google.maps.Marker({
+	 position: new google.maps.LatLng(19.201805,72.966315),
+	 map: map,
+	 title: 'My workplace', 
+	 clickable: true
+	});
+
+	// Creating an InfoWindow object
+	infowindow = new google.maps.InfoWindow({
+	 content: '<H2><font color="#000000">Creative Studio Office</font></H2><br>Thane W</br>'
+	});
+
+	infowindow.open(map, marker);
+    directionsDisplay.setMap(map);
+	directionsDisplay.setPanel(document.getElementById("showroute"));
+  }
+
+  $(document).ready(function(){
+    $('#findMyLocation').click(function(){
+		if (navigator.geolocation) {
+			   var showroute = document.getElementById('showroute');
+                    showroute.addEventListener('click', function(event) {
+                    event.preventDefaults();
+                    });
+					navigator.geolocation.getCurrentPosition(function(position) {
+					showRouteService(position);
+                    });
+                      
+        }
+    });
+  });
+  
+  
+function showRouteService (position) {
+  var request = {
+    origin: new google.maps.LatLng (position.coords.latitude, position.coords.longitude),
+    destination: new google.maps.LatLng(19.201805,72.966315),
+    travelMode: google.maps.DirectionsTravelMode.DRIVING 
+  };
+
+  
+  directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+}
+</script>
+</head>
+<body onload="initialize()">
+<div class="container">
+  <!-- mian conatiner div - easy to handle and apply special look & feel as on required-->
+  <!-- for navigation bar -->
+  <nav class="mynav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html">About us</a></li>
+    <li><a href="mygame.html">Game</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+	<li><a href="twitter.html">Find Tweets</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+	<li><a href="locate.html" class="active">Locate Us</a></li>
+  </nav>
+  <!-- for banner -->
+  <header><img src="images/banner2_small.jpg" height="123" width="976" alt="Creative Studios"/></header>
+  <!-- body content -->
+  <button id="findMyLocation">Get Directions</button>
+<div id="map-container"> 
+					<div id="map_canvas"></div> 
+					<div id="showroute"></div> 
+				</div> 
+
+  
+</div>
+<!-- end of body container -->
+<!-- Footer content -->
+<footer class="foot"><a href="#" class="footlink" >Terms of Use</a> | <a href="#" class="footlink" >Privacy Policy</a> &copy;Copyright 1996-2011 Creative Studios</footer>
+</body>
+</html>

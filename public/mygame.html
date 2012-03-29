@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<head>
+<title>Creative Studios</title>
+<link href="CSS/main.css" type="text/css" rel="stylesheet">
+<!--attaching CSS file to HTML-->
+<!-- to display HTML5 tags in IE8 as well -->
+<!-- [if lt IE 8]-->
+
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<!-- [endif]-->
+<!-- for rounded corners in IE8 - external JS library curvycorners -->
+<script type="text/javascript" src="curvycorners.js"></script>
+<script type="text/JavaScript">
+addEvent(window, 'load', initCorners);
+function initCorners() {
+var setting = {
+tl: { radius: 0 },
+tr: { radius: 0},
+bl: { radius: 12 },
+br: { radius: 12 },
+antiAlias: true
+}
+curvyCorners(setting, ".container");
+}
+</script>
+<style> 
+.fadein { position:absolute; height:325px; width:446px; z-index:200; }
+.fadein img { position:absolute;  padding:47px 80px 0px 70px; z-index:200}
+</style> 
+ 
+<script src="jquery.min.js"></script> 
+<script> 
+var numberoftries=0;
+var numberofsuccess=0;
+var score;
+var  newwindow;
+$(function(){
+	$('.fadein img:gt(0)').hide();
+	setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 3000);
+});
+</script> 
+<script language="javascript" type="text/javascript">
+
+
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+function storeScore(score){
+	if(supports_html5_storage()){
+		localStorage.setItem(document.getElementById('user').value, score);
+		document.getElementById('score').innerHTML=document.getElementById('user').value + "->" + localStorage.getItem(document.getElementById('user').value);
+	}
+}
+function init(){
+var strscore = localStorage.getItem(document.getElementById('user').value);
+	if (null!=strscore){
+		numberofsuccess = parseInt(strscore.substring(0,strscore.indexOf("/")));
+		numberoftries = parseInt(strscore.substring(strscore.indexOf("/")+1,strscore.length));
+	}
+	else{
+		score = 0 + "/" + 0;
+		localStorage.setItem(document.getElementById('user').value, score);
+		numberofsuccess=0;
+		numberoftries=0;
+	}
+}
+
+function popup(url) {
+	if(url=="canvas.htm"){
+		newwindow=window.open(url,'name','height=500,width=800, top=200,left=200');
+	}
+	else{
+		newwindow=window.open(url,'name','height=300,width=300, top=200,left=200');
+	}
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+</script>
+
+</head>
+<body onload="play();">
+<div class="container">
+  <!-- mian conatiner div - easy to handle and apply special look & feel as on required-->
+  <!-- for navigation bar -->
+  <nav class="mynav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html">About us</a></li>
+    <li><a href="mygame.html" class="active">Game</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="twitter.html">Find Tweets</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+	<li><a href="locate.html">Locate Us</a></li>
+  </nav>
+  <!-- for banner -->
+  <header><img src="images/banner2_small.jpg" width="976" height="123" alt="Creative Studios"/></header>
+  <!-- body content -->
+  <article class="content">
+    <header class="ctitle">Game</header>
+    <p>Indentify below given famous personality’s photo.<br/>
+    </p>
+    <br/>
+    <br/>
+    
+    <section>
+    
+      <table background="images/game_bg2.jpg" width="550" height="406">
+        <tbody>
+        <tr height="20">
+        	<td class="ttext" width="360">Who is he/she?</td>
+	        <td width="50">&nbsp;</td>
+            <td width="141">&nbsp;</td>
+        </tr>
+        
+        <tr height="73">
+        	<td width="360"><div id=label></div></td>
+	        <td width="50" class="count">A</td>
+            <td width="141"><img id=img1 class="cell" src="images/Blue_hills.jpg" draggable="true" /></td>
+        </tr>
+        
+        <tr height="73">
+        	<td width="360" rowspan="3"><img id=img5 class="cell1" src="images/blank.jpg" ondragover="event.preventDefault()" /></td>
+	        <td width="50" class="count">B</td>
+            <td width="141"><img id=img2 class="cell" src="images/Blue_hills.jpg" draggable="true" /></td>
+        </tr>
+        <tr height="73">
+        	<!--<td width="360"></td>-->
+	        <td width="50" class="count">C</td>
+            <td width="141"><img id=img3 class="cell" src="images/Blue_hills.jpg" draggable="true" /></td>
+        </tr>
+        <tr height="73">
+        	<!--<td width="360"></td>-->
+	        <td width="50" class="count">D</td>
+            <td width="141"><img id=img4 class="cell" src="images/Blue_hills.jpg" draggable="true" /></td>
+        </tr>
+        <tr height="73">
+        	<td width="360"><div id='answer'> </div></td>
+	        <td colspan="2" class="instruction">Drag the appropriate picture from above list to empty image box</td>
+            
+        </tr>
+        
+      </tbody>
+      </table>
+    
+      <div><a href="" onclick="return popup('popup.htm')"	>Demo</a></div>
+	  <div><a href="" onclick="return popup('canvas.htm')"	>Graph</a></div>
+	  <div><input type="button" value="Play Again" onclick="return play();"/></div>
+	  <div><input id=user type=TextBox value="Enter your name"/></div>
+	  <div id='score'> </div>
+      
+    </section>
+	
+  </article>
+  <!-- start of sidebar -->
+  <aside class="sidebar">
+    <section class="graytbox">Waht's New?</section>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. We know&mdash; we’re in business too. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in.<br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <br/>
+    <section class="graytbox">Contact Us</section>
+    <p class="sidebartxt">Address: 15a kensington <br/>
+      Powai, Mumbai, India 400076<br/>
+      <br/>
+      Ph: &#43;91&nbsp;022&nbsp;6732 2517<br/>
+      email:&nbsp;<a href="mailto:xyz@gmail.com" class="readmorelink">xyz@gmail.com</a><br/>
+      <br/>
+      Follow us at: &nbsp;&nbsp; <img src="images/icons.jpg" style="vertical-align:middle"></p>
+    <br/>
+    <br/><br/>    <br/><br/>    <br/><br/>    <br/>
+  </aside>
+  <!-- end of sidebar -->
+</div>
+<!-- end of body container -->
+<!-- Footer content -->
+<footer class="foot"><a href="#" class="footlink" >Terms of Use</a> | <a href="#" class="footlink" >Privacy Policy</a> &copy;Copyright 1996-2011 Creative Studios</footer>
+</body>
+
+<script>
+var nodes= document.querySelectorAll("img.cell");
+var dragSrcEl = null;
+var target;
+var dragIcon;
+var playAgain =0;
+for (var i=0;i<nodes.length;i++){
+	nodes[i].addEventListener('dragstart', handleDragStart, false);
+}
+var nodes1= document.querySelectorAll("img.cell1");
+for (var j=0;j<nodes1.length;j++){
+	nodes1[j].addEventListener('drop', handleDrop, false);
+}
+
+function handleDragStart(e) {
+  // Target (this) element is the source node.
+  if (document.getElementById('user').value=="Enter your name"){
+		alert("Please enter your name in the Textbox!");
+		return false;
+	}
+  if (playAgain >= 3){
+		alert("Play a new game. Click 'Play Again'");
+		return false;
+	}
+  this.style.opacity = '0.4';
+  dragSrcEl = this;
+  e.dataTransfer.effectAllowed = 'copy';
+  e.dataTransfer.setData('text/html', this.src);
+  dragIcon = document.createElement('img');
+  dragIcon.src = 'marker.png';
+  dragIcon.width = 100;
+  e.dataTransfer.setDragImage(dragIcon, -10, -10);
+}
+
+function handleDrop(e) {
+	
+	playAgain++;
+      init();
+	  // this/e.target is current target element.
+	  if (e.stopPropagation) {
+		e.stopPropagation(); // Stops some browsers from redirecting.
+	  }
+	  e.preventDefault();
+	  this.src = e.dataTransfer.getData('text/html');
+	  var nameList = this.src.split('/');
+	  var name= nameList[nameList.length-1];
+	  var re = /_/g;
+	  if (name.substring(0,name.length-4).replace(re,' ')==document.getElementById('label').innerHTML){
+		document.getElementById('answer').innerHTML= "CORRECT";
+		numberofsuccess++;
+		numberoftries++;
+	  }
+	  else{
+		document.getElementById('answer').innerHTML= "INCORRECT";
+		numberoftries++;
+	  }
+	  // Don't do anything if dropping the same column we're dragging.
+	  if (dragSrcEl != this) {
+		// Set the source column's HTML to the HTML of the columnwe dropped on.
+	  }
+      score = numberofsuccess + "/"+ numberoftries;
+	  storeScore(score);
+	  return false;
+}
+function play(){
+	playAgain =0;
+	var arr1 = new Array('Obama.jpg','Manmohan_Singh.jpg','Martin_Luther.jpg','JRD_Tata.jpg','Ratan_Tata.jpg','Mahatma_Gandhi.jpg','Indira_Gandhi.jpg','Rahul_Gandhi.jpg','Thomas_Edison.jpg','Einstein.jpg');
+	var arr3 = [];
+
+	for (var i=0; i<4;i++){
+		var index= Math.floor(Math.random()*10);
+			while(index>=arr1.length){
+				var index= Math.floor(Math.random()*10);
+			}
+		 arr3.push(arr1.splice(index,1));
+	   }
+	    document.getElementById('img5').src='images/blank.jpg';
+		document.getElementById('img1').src='images/'+arr3[0];
+		document.getElementById('img1').style.opacity = '1';
+		document.getElementById('img2').src='images/'+arr3[1];
+		document.getElementById('img2').style.opacity = '1';
+		document.getElementById('img3').src='images/'+arr3[2];
+		document.getElementById('img3').style.opacity = '1';
+		document.getElementById('img4').src='images/'+arr3[3];
+		document.getElementById('img4').style.opacity = '1';
+
+	while(index>=4){
+			index= Math.floor(Math.random()*10);
+		}
+		var name= arr3[index].toString();;
+		var re = /_/g;
+		document.getElementById('label').innerHTML=name.substring(0,name.length-4).replace(re,' ');
+}
+</script>
+
+
+</html>

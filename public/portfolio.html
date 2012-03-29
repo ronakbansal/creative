@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+<title>Creative Studios</title>
+<link href="CSS/main.css" type="text/css" rel="stylesheet">
+<!--attaching CSS file to HTML-->
+<!-- to display HTML5 tags in IE8 as well -->
+<!-- [if lt IE 8]-->
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<!-- [endif]-->
+<!-- for rounded corners in IE8 - external JS library curvycorners -->
+<script type="text/javascript" src="curvycorners.js"></script>
+<script type="text/JavaScript">
+addEvent(window, 'load', initCorners);
+function initCorners() {
+var setting = {
+tl: { radius: 0 },
+tr: { radius: 0},
+bl: { radius: 12 },
+br: { radius: 12 },
+antiAlias: true
+}
+curvyCorners(setting, ".container");
+}
+</script>
+</head>
+<body>
+<div class="container">
+  <!-- mian conatiner div - easy to handle and apply special look & feel as on required-->
+  <!-- for navigation bar -->
+  <nav class="mynav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutus.html">About us</a></li>
+    <li><a href="mygame.html">Game</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+	<li><a href="twitter.html">Find Tweets</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+	<li><a href="locate.html">Locate Us</a></li>
+  </nav>
+  <!-- for banner -->
+  <header><img src="images/banner2_small.jpg" width="976" height="123" alt="Creative Studios"/></header>
+  <!-- body content -->
+  <article class="content">
+			<table>
+            	<tr class="vspacing">
+                	<td colspan="3"><span class="ctitle">Portfolio</span><br/>Check out some of our work.<br/><br/></td>
+                </tr>
+               	<tr>
+                	<td colspan="3" class="td2 td2title">Websites</td>
+                </tr>
+            	<tr>
+                	<td><img src="images/ws1.jpg" width="178" class="imgshadow"/></a></td>
+                    <td><img src="images/ws1.jpg" width="178" class="imgshadow"/></td>
+                    <td><img src="images/ws1.jpg" width="178" class="imgshadow"/></td>
+                </tr>
+                <tr>
+                	<td>XYZ site <br />Role: Visual designer</td>
+                    <td>XYZ site <br />Role: Visual designer</td>
+                    <td>XYZ site <br />Role: Visual designer</td>
+                </tr>
+                <tr class="vspacing">&nbsp;</tr>
+                <tr>
+                	<td colspan="3" class="td2 td2title">Logo designs</td>
+                </tr>
+  				
+                <tr>
+                	<td><img src="images/logo1.jpg" width="178" class="imgshadow"/></td>
+                    <td><img src="images/logo2.jpg" width="178" class="imgshadow"/></td>
+                    <td><img src="images/logo3.jpg" width="178" class="imgshadow"/></td>
+                </tr>
+                <tr>
+                	<td>Impetus2011-op1 <br />Role: Visual designer</td>
+                    <td>Impetus2011-op2  <br />Role: Visual designer</td>
+                    <td>Impetus2011-op3  <br />Role: Visual designer</td>
+                </tr>
+                <tr class="vspacing">&nbsp;</tr>
+                <tr>
+                	<td colspan="3" class="td2 td2title">3D modeling</td>
+                </tr>
+                <tr>
+                	<td><img src="images/3d1.jpg" width="178" class="imgshadow"/></td>
+                    <td><img src="images/3d2.jpg" width="178" class="imgshadow"/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                	<td>Shampoo bottle <br />Role: 3D designer</td>
+                    <td>Toothpaste tube <br />Role: 3D designer</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                	<td colspan="3">&nbsp;</td>
+                </tr>
+                
+            </table>	
+  </article>
+ 
+ 
+ 
+  <!-- start of sidebar -->
+  <aside class="sidebar">
+    <section class="graytbox">Waht's New?</section>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. We know&mdash; we’re in business too. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in. <br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <p class="sidebartxt">Website design is only as good as the leads it generates and sales it brings in.<br/>
+      <span><a class="readmorelink" href="#">Read more..</a></span></p>
+    <br/>
+    <br/>
+    <br/>
+    <section class="graytbox">Contact Us</section>
+    <p class="sidebartxt">Address: 15a kensington <br/>
+      Powai, Mumbai, India 400076<br/>
+      <br/>
+      Ph: &#43;91&nbsp;022&nbsp;6732 2517<br/>
+      email:&nbsp;<a href="mailto:xyz@gmail.com" class="readmorelink">xyz@gmail.com</a><br/>
+      <br/>
+      Follow us at: &nbsp;&nbsp; <img src="images/icons.jpg" style="vertical-align:middle"></p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </aside>
+  <!-- end of sidebar -->
+</div>
+<!-- end of body container -->
+<!-- Footer content -->
+<footer class="foot"><a href="#" class="footlink" >Terms of Use</a> | <a href="#" class="footlink" >Privacy Policy</a> &copy;Copyright 1996-2011 Creative Studios</footer>
+</body>
+</html>

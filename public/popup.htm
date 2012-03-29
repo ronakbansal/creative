@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+<link rel="stylesheet" type="text/css" href="CSS/css_portfolio2.css" /></head>
+
+<body>
+	
+			
+              <table >
+				  <tr>
+				  
+					<td width=30>
+					<svg width="10cm" height="10cm"  viewBox="0 0 1002 1002	"
+     xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <desc>Example anim01 - demonstrate animation elements</desc>
+		<rect x="1" y="1" width="700" height="700" 
+        fill="none" stroke="blue" stroke-width="2" />
+		<rect x="100" y="80" width="250" height="570" fill="red"  >
+				<animate attributeType="CSS" attributeName="fill" 
+				 from="red" to="green"  begin="2s" dur="3s"  fill="freeze"/>
+		</rect>
+		<rect x="450" y="80" width="120" height="120" 
+        fill="blue"  />
+		<rect x="450" y="230" width="120" height="120" 
+        fill="blue"  />
+		
+		
+		<rect x="450" y="380" width="120" height="120" 
+        fill="blue"  >
+		
+		<animate attributeName="x" attributeType="XML"
+             begin="2s" dur="3s" fill="freeze" from="450" to="230" />
+		</rect>
+		
+		<rect x="450" y="530" width="120" height="120" 
+        fill="blue"  />
+		<path id="path1" d="M 650 300 L 490,460 "
+        fill="none"   />
+		<path id="path2" d="M 490 460 L 270,460 "
+        fill="none"   />
+		
+	  <path d="M-25,-12.5 L25,-12.5 L 0,-67.5 z"
+			fill="yellow" stroke="red" stroke-width="7.06"  >
+		<!-- Define the motion path animation -->
+		<animateMotion dur="2s" repeatCount="1" fill="freeze">
+		   <mpath xlink:href="#path1"/>
+		</animateMotion>
+		<animateMotion begin= "2s" dur="3s" repeatCount="1" fill="freeze">
+		   <mpath xlink:href="#path2"/>
+		</animateMotion>
+	  </path>
+  
+</svg>
+					</td>
+				  </tr>
+				 
+			</table>
+                
+           
+
+</html>

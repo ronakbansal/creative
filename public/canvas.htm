@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+</head>
+
+<body onload="init();">
+              
+			  <table >
+			       <tr>
+				  
+					<td>
+					
+					</td>
+				  </tr>
+				  <tr>
+				  
+					<td>
+					<canvas id="graphSpace" width="800" height="400"></canvas>
+					</td>
+				  </tr>
+				 
+			</table>          
+</body>
+<script>
+var graphCanvas = document.getElementById('graphSpace');
+var size;
+var data;
+var markDataIncrementsIn;
+var barWidth;
+// Ensure that the element is available within the DOM
+function init(){
+data = new Array(window.parent.localStorage.length) ;
+    for (i=0; i<=window.parent.localStorage.length-1; i++)   
+    {   
+         key = window.parent.localStorage.key(i);  
+        val = window.parent.localStorage.getItem(key);  
+		data[i]=	key + ";" + val;		
+    }
+	if (graphCanvas && graphCanvas.getContext) {
+	  // Open a 2D context within the canvas
+	  var context = graphCanvas.getContext('2d');
+
+	  // Draw the bar chart
+	  drawBarChart(context, window.parent.localStorage, 50,  (graphCanvas.height - 20));
+	}
+}
+
+function drawBarChart(context, data, startX, chartHeight ) {
+  // Draw the x and y axes
+  context.lineWidth = "1.0";
+  var startY = 380;
+  drawLine(context, startX, startY, startX, 0); 
+  drawLine(context, startX, startY, 570, startY);			
+  context.lineWidth = "0.0";
+  var maxValue = 0;
+  barWidth = 520/data.length;
+   for (var i=0; i < data.length; i++) {
+    // Extract the data
+    var name = window.parent.localStorage.key(i);
+	var val = window.parent.localStorage.getItem(name); 
+	var scores = val.split("/");
+    var height = parseInt(scores[1]);
+    if (parseInt(height) > parseInt(maxValue)) maxValue = height;
+  }
+  
+  for (var i=0; i < data.length; i++) {
+    // Extract the data
+    var name = window.parent.localStorage.key(i);
+	var val = window.parent.localStorage.getItem(name); 
+	var scores = val.split("/");
+    var height = parseInt(scores[1]);
+    height = height * chartHeight / maxValue;
+	
+    // Write the data to the chart
+    context.fillStyle = "#ff0000";
+    drawRectangle(context,startX + (i * barWidth) + i,(chartHeight - height),barWidth,height,true);
+	
+    // Add the column title to the x-axis
+    context.textAlign = "left";
+    context.fillStyle = "#000";
+    context.fillText(name, startX + (i * barWidth) + i, chartHeight + 10, 200);		
+  }
+  for (var i=0; i < data.length; i++) {
+    // Extract the data
+    var name = window.parent.localStorage.key(i);
+	var val = window.parent.localStorage.getItem(name); 
+	var scores = val.split("/");
+    var height = parseInt(scores[0]);
+    height = height * chartHeight / maxValue;
+    // Write the data to the chart
+    context.fillStyle = "#00b900";
+    drawRectangle(context,startX + (i * barWidth) + i,(chartHeight - height),barWidth,height,true);
+		
+  }
+  // Add some data markers to the y-axis
+  var numMarkers = maxValue;
+  markDataIncrementsIn = Math.ceil(chartHeight / numMarkers);
+  context.textAlign = "right";
+  context.fillStyle = "#000";
+  var markerValue = 0;
+  var markerText = 0;
+  for (var i=0; i < numMarkers; i++) {		
+    context.fillText(markerText, (startX - 5), (chartHeight - markerValue), 50);
+	markerValue += markDataIncrementsIn;
+	markerText = Math.round(markerValue * maxValue /chartHeight);
+     
+  }
+  context.fillText(maxValue, (startX - 5), (7), 50);
+}
+
+// drawLine - draws a line on a canvas context from the start point to the end point 
+function drawLine(contextO, startx, starty, endx, endy) {
+  contextO.beginPath();
+  contextO.moveTo(startx, starty);
+  contextO.lineTo(endx, endy);
+  contextO.closePath();
+  contextO.stroke();
+}
+
+// drawRectangle - draws a rectangle on a canvas context using the dimensions specified
+function drawRectangle(contextO, x, y, w, h, fill) {			
+  contextO.beginPath();
+  contextO.rect(x, y, w, h);
+  contextO.closePath();
+  contextO.stroke();
+  if (fill) contextO.fill();
+}
+</script>
+</html>

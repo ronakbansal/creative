@@ -1,0 +1,288 @@
+/* CSS Document */
+
+body
+{
+padding:0px;
+margin:0px;
+background-color:#f1f1f1;
+font-family:Arial, Helvetica, sans-serif, Verdana;
+font-size:12px;
+}
+
+header,nav,section,article,aside,footer,hgroup 
+{ 
+display: block;
+}
+
+.container
+{
+margin:0px auto;
+background-color:#FFFFFF;
+width:984px;
+padding:20px;
+overflow:auto;
+display:block;
+/*for main container shadow*/
+-moz-box-shadow: 3px 3px 3px #e2e2e2;
+-webkit-box-shadow: 3px 3px 3px #e2e2e2;
+box-shadow: 3px 3px 3px #e2e2e2;
+/*for IE8 - main container shadow*/
+/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=150,Color='#e2e2e2')";
+z-index:5;*/
+
+/*for rounded conners for main container*/
+border-radius: 0px 0px 5px 5px;
+-moz-border-radius:0px 0px 5px 5px;
+-webkit-border-radius: 0px 0px 5px 5px;
+}
+
+/*navigation*/
+.mynav
+{
+height:20px;
+padding:20px 20px 0px 0px;
+float:right;
+}
+
+.mynav li
+{
+display:inline-block;
+text-decoration:none;
+padding-left:30px;
+padding-right:29px;
+padding-top:0px;
+}
+
+.mynav li a
+{
+text-decoration:none;
+color:#333333;
+text-transform:capitalize;
+display:block;
+
+}
+
+.mynav li a:hover
+{
+color:#FF0000;
+}
+
+/*for active page display in navigation bar*/
+.mynav li .active
+{
+color:#FF0000;
+display:inline-block;
+}
+
+/*page body content*/
+.content
+{
+width:700px;
+font-size:12px;
+color:#666666;
+margin:60px 20px 20px 40px;
+float:left;
+}
+
+.ctitle
+{
+font-family:"Sabon LT Std";
+font-size:22px;
+color:#333333;
+padding-bottom:10px;
+}
+
+.readmorelink
+{
+font-size:11px;
+color:#ce2f04;
+text-decoration:none;
+}
+
+.tableservices
+{
+width:680px;
+font-size:12px;
+color:#666666;
+padding:20px 0px 20px 0px;
+}
+
+.td1
+{
+background-color:#eeddb1;
+width:2px;
+}
+
+.td2
+{
+width:680px;
+padding-bottom:30px;
+padding-top:10px;
+}
+
+.td2title
+{
+background-color:#fff4d8;
+font-size:14px;
+color:#666666;
+font-weight:bold;
+padding-bottom:10px;
+padding-left:10px;
+}
+
+.vspacing
+{
+height:20px;
+}
+
+
+
+/*right sidebar content*/
+.sidebar
+{
+float:right;
+width:200px;
+position:relative;
+margin:60px 10px 20px 10px;
+}
+
+.graytbox
+{
+height:30px;
+text-align:left;
+margin-left:10px;
+padding:20px 10px 0px 20px;
+font-family:Arial;
+font-size:14px;
+font-weight:bold;
+color:#333333;
+vertical-align:middle;
+background-image: -webkit-linear-gradient(bottom,#ffffff, #f4f4f4);    
+background-image: -moz-linear-gradient(bottom, #ffffff, #f4f4f4);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ffffff');
+}
+
+.sidebartxt
+{
+height:50px;
+margin-left:10px;
+padding:0px 10px 0px 20px;
+font-family:Arial;
+font-size:12px;
+color:#333333;
+text-align:left;
+}
+
+/*for footer*/
+.foot
+{
+clear:both;
+height:20px;
+background-image:url(../images/bg_footer.jpg);
+background-repeat:repeat-x;
+font-size:9px;
+font:Verdana, Arial, Helvetica, sans-serif;
+background-position:top center;
+width:800px;
+padding:20px;
+margin:0px auto;
+text-align:center;
+overflow:auto;
+}
+
+.footlink
+{
+text-decoration:underline;
+}
+
+
+.cform
+{
+float:left;
+border:none;
+width:400px;
+}
+
+.lb_contact
+{
+float:right;
+padding-right:20px;
+}
+
+.imgshadow
+{
+-webkit-border-radius: 5px 5px 5px 5px;
+-moz-box-shadow: 3px 3px 3px #999999;
+-webkit-box-shadow: 3px 3px 3px #999999;
+box-shadow: 3px 3px 3px #999999;
+}
+
+
+/* game display*/
+.cell
+{
+width:55px;
+height:72px;
+vertical-align:top;
+text-align:left;
+font-family:arial;
+font-size:11px;
+}
+
+.cell1
+{
+width:166px;
+height:218px;
+vertical-align:top;
+padding-left:95px;
+}
+
+
+.ttext
+{
+font:Arial;
+font-size:16px;
+color:#FFFFFF;
+font-weight:bold;
+text-align:center;
+}
+
+#label
+{
+font:Arial;
+font-size:18px;
+color:#333333;
+font-weight:bold;
+padding:20px 0px 0px 0px;
+text-align:center;
+}
+
+#answer
+{
+font:Arial;
+font-size:18px;
+color:#333333;
+font-weight:bold;
+padding:0px 0px 20px 0px;
+text-align:center;
+}
+
+.count
+{
+font:Arial;
+font-size:12px;
+color:#a1a1a1;
+font-weight:bold;
+text-align:center;
+}
+
+.instruction
+{
+font:Arial;
+font-size:11px;
+color:#a1a1a1;
+text-align:center;
+font-style:italic;
+padding-left:10px;
+padding-right:10px;
+}
